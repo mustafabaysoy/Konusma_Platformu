@@ -12,9 +12,21 @@ namespace BussinessLayer_.Concrete
     {
         GenericRepository<Category> repo = new GenericRepository<Category>();
 
-        public List<Category> GetAll()
+        public List<Category> GetAllBL()
         {
             return repo.List();
         }
+        public void CategoryAddBL(Category p)
+        {
+            if (p.CategoryName == "" || p.CategoryName.Length <= 3 || p.CategoryDesciprition == "" || p.CategoryName.Length >51)
+            {
+                //hata mesjı
+            }
+            else
+            {
+                repo.Insert(p);
+            }
+        }
+
     }
 }
